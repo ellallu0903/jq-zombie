@@ -1,8 +1,8 @@
 ##### 預覽：
 
-##### 連結：[zombie](https://ellallu0903.github.io/jq-zombie-ellallu0903/20201005_HW_zombie)
+##### 連結：[zombie](https://ellallu0903.github.io/jq-zombie/20201005_HW_zombie)
 
-###### 圖片來源：
+##### 圖片來源：
 
 - [小魔女人物圖](https://twitter.com/popcorn_daily_/status/1284129590974144514?s=20 'Twitter')
 - [小魔女點擊後插圖 01](https://www.deviantart.com/eniotna/art/Pink-OjaSennyo-DoDo-79971057 'Deviant Art')
@@ -17,4 +17,4 @@
 - [背景圖－生命之樹](https://www.niusnews.com/=P0a8g3g2 'Niusnews')
 - [規則圖背景](https://www.niusnews.com/=P1ybdnn6 'Niusnews')
 
-###### 背景音樂：[/小魔女 Do Re Mi OP1 - おジャ魔女カーニバル!!｜ Piano](https://www.youtube.com/watch?v=AShVhS6LORM 'Youtube')
+##### 背景音樂：[/小魔女 Do Re Mi OP1 - おジャ魔女カーニバル!!｜ Piano](https://www.youtube.com/watch?v=AShVhS6LORM 'Youtube')
