@@ -17,4 +17,4 @@
 - [背景圖－生命之樹](https://www.niusnews.com/=P0a8g3g2 'Niusnews')
 - [規則圖背景](https://www.niusnews.com/=P1ybdnn6 'Niusnews')
 
-##### 背景音樂：[/小魔女 Do Re Mi OP1 - おジャ魔女カーニバル!!｜ Piano](https://www.youtube.com/watch?v=AShVhS6LORM 'Youtube')
+##### 背景音樂：[小魔女 Do Re Mi OP1 - おジャ魔女カーニバル!!｜ Piano](https://www.youtube.com/watch?v=AShVhS6LORM 'Youtube')
