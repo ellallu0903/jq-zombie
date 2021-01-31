@@ -21,7 +21,7 @@
     body {
       width: 100vw;
       height: 100vh;
-      font-family: "Noto Sans TC", sans-serif;
+      font-family: 'Noto Sans TC', sans-serif;
       background: url(./images/BG.jpg) no-repeat;
       background-size: cover;
       margin: 0;
@@ -66,7 +66,7 @@
     /* 分數 / 時間 */
     #score,
     #time {
-      font-family: "Press Start 2P", cursive;
+      font-family: 'Press Start 2P', cursive;
       font-size: 33px;
       color: white;
       margin-left: 25px;
@@ -82,7 +82,7 @@
       color: white;
       border-radius: 10px;
       font-size: 25px;
-      font-family: "Press Start 2P", cursive;
+      font-family: 'Press Start 2P', cursive;
       background-color: rgba(219, 77, 109, 0.7);
       border: 3px solid rgba(219, 77, 109, 0.9);
     }
@@ -99,7 +99,7 @@
       color: white;
       border-radius: 10px;
       font-size: 25px;
-      font-family: "Press Start 2P", cursive;
+      font-family: 'Press Start 2P', cursive;
       background-color: rgba(138, 107, 190, 0.7);
       border: 3px solid rgba(138, 107, 190, 0.9);
       margin: 12px;
@@ -275,235 +275,231 @@
 
     <script src="./jquery-3.5.1.min.js"></script>
     <script>
-      let score = 0;
-      let timeleft = 30;
+      let score = 0
+      let timeleft = 30
       //   目標流水號
-      let id = 0;
+      let id = 0
       //   愛心圖
-      let heart = 1;
+      let heart = 1
 
       //   music
       const audio = new Audio(
-        "./小魔女Do Re Mi OP1 - おジャ魔女カーニバル!!｜Piano.mp3"
-      );
-      audio.play();
-      audio.loop = true;
+        './小魔女Do Re Mi OP1 - おジャ魔女カーニバル!!｜Piano.mp3'
+      )
+      audio.play()
+      audio.loop = true
 
       // 點圖：播放/暫停 - 音樂
-      $("#music").click(function () {
-        if ($("#music img").attr("src") === "./images/music-on-2.gif") {
-          $("#music img").attr("src", "./images/music-off.png");
-          audio.pause();
+      $('#music').click(function () {
+        if ($('#music img').attr('src') === './images/music-on-2.gif') {
+          $('#music img').attr('src', './images/music-off.png')
+          audio.pause()
         } else {
-          $("#music img").attr("src", "./images/music-on-2.gif");
-          audio.play();
+          $('#music img').attr('src', './images/music-on-2.gif')
+          audio.play()
         }
-      });
+      })
 
       //   隨機
       const rand = (num) => {
-        return Math.floor(Math.random() * num);
-      };
+        return Math.floor(Math.random() * num)
+      }
 
       //   遞迴：自己呼叫自己，讓目標在秒數後繼續移動
       const movewitch = (id) => {
         $(`#witch1${id}`).animate(
           {
-            left: rand(75) + "%",
-            top: rand(75) + "%",
+            left: rand(75) + '%',
+            top: rand(75) + '%',
           },
           3000,
           function () {
-            movewitch(id);
+            movewitch(id)
           }
-        );
+        )
         $(`#witch2${id}`).animate(
           {
-            left: rand(65) + "%",
-            top: rand(65) + "%",
+            left: rand(65) + '%',
+            top: rand(65) + '%',
           },
           3000,
           function () {
-            movewitch(id);
+            movewitch(id)
           }
-        );
+        )
         $(`#witch3${id}`).animate(
           {
-            left: rand(65) + "%",
-            top: rand(65) + "%",
+            left: rand(65) + '%',
+            top: rand(65) + '%',
           },
           3000,
           function () {
-            movewitch(id);
+            movewitch(id)
           }
-        );
+        )
         $(`#witch4${id}`).animate(
           {
-            left: rand(65) + "%",
-            top: rand(65) + "%",
+            left: rand(65) + '%',
+            top: rand(65) + '%',
           },
           3000,
           function () {
-            movewitch(id);
+            movewitch(id)
           }
-        );
-      };
+        )
+      }
 
       // 點擊開始按鈕
-      $("#btn-start").click(function () {
+      $('#btn-start').click(function () {
         //   停用開始按鈕
-        $(this).attr("disabled", true);
+        $(this).attr('disabled', true)
 
         // 重設分數/時間
-        score = 0;
-        $("#text-score").text(score);
-        timeleft = 30;
-        $("#text-time").text(timeleft);
-        heart = 1;
-        $("#life-heart").animate({ top: `0px` }, 45);
+        score = 0
+        $('#text-score').text(score)
+        timeleft = 30
+        $('#text-time').text(timeleft)
+        heart = 1
+        $('#life-heart').animate({ top: `0px` }, 45)
         // 移除圖片
-        $("#rule").removeClass("rule animate__animated animate__fadeIn");
-        $("#pic").removeClass("zero  animate__animated animate__bounceIn");
-        $("#pic").removeClass("GoodJob animate__animated animate__bounceIn");
-        $("#pic").removeClass("perfect  animate__animated animate__bounceIn");
-        $("#pic").removeClass("GameOver  animate__animated animate__bounceIn");
+        $('#rule').removeClass('rule animate__animated animate__fadeIn')
+        $('#pic').removeClass('zero  animate__animated animate__bounceIn')
+        $('#pic').removeClass('GoodJob animate__animated animate__bounceIn')
+        $('#pic').removeClass('perfect  animate__animated animate__bounceIn')
+        $('#pic').removeClass('GameOver  animate__animated animate__bounceIn')
 
         // 倒數：
         let timer = setInterval(function () {
           // 修改秒數
-          timeleft--;
-          $("#text-time").text(timeleft);
+          timeleft--
+          $('#text-time').text(timeleft)
           //   時間到
           if (timeleft === 0) {
-            clearInterval(timer);
-            $("#btn-start").attr("disabled", false);
+            clearInterval(timer)
+            $('#btn-start').attr('disabled', false)
             setTimeout(() => {
-              alert(`☛ You'r score： ${score}`);
-            }, 50);
-            $("#game img").remove();
-            $("#rule").removeClass("rule animate__animated animate__fadeIn");
+              alert(`☛ You'r score： ${score}`)
+            }, 50)
+            $('#game img').remove()
+            $('#rule').removeClass('rule animate__animated animate__fadeIn')
 
             if (score < 10) {
-              $("#pic").addClass("zero  animate__animated animate__bounceIn");
+              $('#pic').addClass('zero  animate__animated animate__bounceIn')
             } else if (score >= 10 && score < 20) {
-              $("#pic").addClass(
-                "GoodJob  animate__animated animate__bounceIn"
-              );
+              $('#pic').addClass('GoodJob  animate__animated animate__bounceIn')
             } else if (score >= 20) {
-              $("#pic").addClass(
-                "perfect  animate__animated animate__bounceIn"
-              );
+              $('#pic').addClass('perfect  animate__animated animate__bounceIn')
             }
           } else if (heart === 4) {
-            clearInterval(timer);
-            $("#btn-start").attr("disabled", false);
-            $("#rule").removeClass("rule animate__animated animate__fadeIn");
+            clearInterval(timer)
+            $('#btn-start').attr('disabled', false)
+            $('#rule').removeClass('rule animate__animated animate__fadeIn')
             // setTimeout(() => {
             //   alert("OHOH");
             // }, 50);
-            $("#pic").addClass("GameOver animate__animated animate__bounceIn");
-            $("#game img").remove();
+            $('#pic').addClass('GameOver animate__animated animate__bounceIn')
+            $('#game img').remove()
           } else {
             //   每秒隨機出現殭屍
             if (rand(10) > 8) {
-              $("#game").append(
+              $('#game').append(
                 `<img src="./images/witch1-1.png" id="witch1${id}">`
-              );
+              )
               $(`#witch1${id}`).css({
-                left: rand(70) + "%",
-                top: rand(70) + "%",
-              });
-              movewitch(id);
-              id++;
+                left: rand(70) + '%',
+                top: rand(70) + '%',
+              })
+              movewitch(id)
+              id++
             } else if (rand(10) > 7) {
-              $("#game").append(
+              $('#game').append(
                 `<img src="./images/witch2-1.png" id="witch2${id}">`
-              );
+              )
               $(`#witch2${id}`).css({
-                left: rand(70) + "%",
-                top: rand(70) + "%",
-              });
-              movewitch(id);
-              id++;
+                left: rand(70) + '%',
+                top: rand(70) + '%',
+              })
+              movewitch(id)
+              id++
             } else if (rand(10) >= 5) {
-              $("#game").append(
+              $('#game').append(
                 `<img src="./images/witch3-1.png" id="witch3${id}">`
-              );
+              )
               $(`#witch3${id}`).css({
-                left: rand(70) + "%",
-                top: rand(70) + "%",
-              });
-              movewitch(id);
-              id++;
+                left: rand(70) + '%',
+                top: rand(70) + '%',
+              })
+              movewitch(id)
+              id++
             } else {
-              $("#game").append(
+              $('#game').append(
                 `<img src="./images/frog.png" id="witch4${id}">`
-              );
+              )
               $(`#witch4${id}`).css({
-                left: rand(70) + "%",
-                top: rand(70) + "%",
-              });
-              movewitch(id);
-              id++;
+                left: rand(70) + '%',
+                top: rand(70) + '%',
+              })
+              movewitch(id)
+              id++
             }
           }
-        }, 1000);
-      });
+        }, 1000)
+      })
 
       //   點擊目標後換圖/點擊穿透/加分
-      $("#game").on("click", "img", function () {
-        if ($(this).attr("src") === "./images/witch1-1.png") {
-          $(this).stop(true, false);
-          $(this).attr("src", "./images/witch1-2.png");
-          $(this).addClass("hit-style");
-          $(this).css("pointer-events", "none");
-          score += 3;
-          $("#text-score").text(score);
-        } else if ($(this).attr("src") === "./images/witch2-1.png") {
-          $(this).stop(true, false);
-          $(this).attr("src", "./images/witch2-2.png");
-          $(this).addClass("hit-style");
-          $(this).css("pointer-events", "none");
-          score += 2;
-          $("#text-score").text(score);
-        } else if ($(this).attr("src") === "./images/witch3-1.png") {
-          $(this).stop(true, false);
-          $(this).attr("src", "./images/witch3-2.png");
-          $(this).addClass("hit-style");
-          $(this).css("pointer-events", "none");
-          score++;
-          $("#text-score").text(score);
-        } else if ($(this).attr("src") === "./images/frog.png") {
-          $(this).stop(true, false);
-          $(this).attr("src", "./images/frog1-2.png");
-          $(this).addClass("hit-style");
-          $(this).css("pointer-events", "none");
-          if (heart < $("#life-heart img").length) {
-            heart++;
-            const move = (heart - 1) * 45;
-            $("#life-heart").animate({ top: `-${move}px` }, 100);
+      $('#game').on('click', 'img', function () {
+        if ($(this).attr('src') === './images/witch1-1.png') {
+          $(this).stop(true, false)
+          $(this).attr('src', './images/witch1-2.png')
+          $(this).addClass('hit-style')
+          $(this).css('pointer-events', 'none')
+          score += 3
+          $('#text-score').text(score)
+        } else if ($(this).attr('src') === './images/witch2-1.png') {
+          $(this).stop(true, false)
+          $(this).attr('src', './images/witch2-2.png')
+          $(this).addClass('hit-style')
+          $(this).css('pointer-events', 'none')
+          score += 2
+          $('#text-score').text(score)
+        } else if ($(this).attr('src') === './images/witch3-1.png') {
+          $(this).stop(true, false)
+          $(this).attr('src', './images/witch3-2.png')
+          $(this).addClass('hit-style')
+          $(this).css('pointer-events', 'none')
+          score++
+          $('#text-score').text(score)
+        } else if ($(this).attr('src') === './images/frog.png') {
+          $(this).stop(true, false)
+          $(this).attr('src', './images/frog1-2.png')
+          $(this).addClass('hit-style')
+          $(this).css('pointer-events', 'none')
+          if (heart < $('#life-heart img').length) {
+            heart++
+            const move = (heart - 1) * 45
+            $('#life-heart').animate({ top: `-${move}px` }, 100)
           }
         }
-      });
+      })
 
       // 點擊出現規則圖
-      $("#btn-rule").click(function () {
-        $("#rule").addClass("rule animate__animated animate__fadeIn");
-      });
+      $('#btn-rule').click(function () {
+        $('#rule').addClass('rule animate__animated animate__fadeIn')
+      })
 
       // 點規則圖後消失;
-      $("#rule").click(function () {
-        $("#rule").removeClass("rule animate__animated animate__fadeIn");
-      });
+      $('#rule').click(function () {
+        $('#rule').removeClass('rule animate__animated animate__fadeIn')
+      })
 
       // 點擊螢幕全範圍：輸贏圖/高分圖會消失
-      $("body").click(function () {
+      $('body').click(function () {
         // 用同一個框包不同圖
-        $("#pic").removeClass("zero  animate__animated animate__bounceIn");
-        $("#pic").removeClass("GoodJob animate__animated animate__bounceIn");
-        $("#pic").removeClass("perfect  animate__animated animate__bounceIn");
-        $("#pic").removeClass("GameOver  animate__animated animate__bounceIn");
-      });
+        $('#pic').removeClass('zero  animate__animated animate__bounceIn')
+        $('#pic').removeClass('GoodJob animate__animated animate__bounceIn')
+        $('#pic').removeClass('perfect  animate__animated animate__bounceIn')
+        $('#pic').removeClass('GameOver  animate__animated animate__bounceIn')
+      })
     </script>
   </body>
 </html>
