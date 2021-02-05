@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>おジャ魔女どれみ GAME</title>
   </head>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./images/favicon.ico" />
+  <!-- css_style -->
+  <link rel="stylesheet" href="./style.css" />
   <!-- 字型：Noto Sans 思源黑體 -->
   <link
     rel="stylesheet"
@@ -17,242 +21,29 @@
   />
   <!-- animate -->
   <link rel="stylesheet" href="./animate.min.css" />
-  <style>
-    body {
-      width: 100vw;
-      height: 100vh;
-      font-family: 'Noto Sans TC', sans-serif;
-      background: url(https://github.com/ellallu0903/jq-zombie/blob/master/images/bg.jpg?raw=true)
-        no-repeat;
-      background-size: cover;
-      margin: 0;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: url(./images/cur-brown.cur), auto;
-    }
-    /* 遊戲版面 */
-    #game {
-      width: 1100px;
-      height: 700px;
-      background: rgba(255, 255, 255, 0.35);
-      /* background: rgba(83, 61, 91, 0.5); */
-      border: 3px solid rgba(255, 255, 255, 0.6);
-      border-radius: 15px;
-      overflow: hidden;
-      position: relative;
-    }
 
-    /* 目標圖片 */
-    #game img {
-      position: absolute;
-      height: 180px;
-    }
-    /* 目標點擊後的圖片 */
-    .hit-style {
-      animation: hit 1s linear forwards;
-    }
-    @keyframes hit {
-      from {
-        transform: scale(1);
-      }
-      25% {
-        transform: scale(1.2);
-      }
-      to {
-        transform: scale(0);
-      }
-    }
-    /* 分數 / 時間 */
-    #score,
-    #time {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 33px;
-      color: white;
-      margin-left: 25px;
-      -webkit-text-stroke: 0.8px rgba(0, 0, 0, 1);
-      text-shadow: 5px 5px 5px #333333;
-    }
-
-    /* 開始按鈕 */
-    .botton-style {
-      width: 180px;
-      height: 60px;
-      margin: 12px;
-      color: white;
-      border-radius: 10px;
-      font-size: 25px;
-      font-family: 'Press Start 2P', cursive;
-      background-color: rgba(219, 77, 109, 0.7);
-      border: 3px solid rgba(219, 77, 109, 0.9);
-    }
-    .botton-style:hover {
-      cursor: url(./images/cur-red.cur), pointer;
-      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))
-        drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-      transform: scale(1.05);
-    }
-    /* 規則按鈕 */
-    .rule-botton-style {
-      width: 180px;
-      height: 60px;
-      color: white;
-      border-radius: 10px;
-      font-size: 25px;
-      font-family: 'Press Start 2P', cursive;
-      background-color: rgba(138, 107, 190, 0.7);
-      border: 3px solid rgba(138, 107, 190, 0.9);
-      margin: 12px;
-    }
-    .rule-botton-style:hover {
-      cursor: url(./images/cur-purple.cur), pointer;
-      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))
-        drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-      transform: scale(1.05);
-    }
-
-    /* 規則圖 */
-    .rule {
-      width: 1080px;
-      height: 780px;
-      background-image: url(./images/rule.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: absolute;
-      top: 0%;
-      left: 25%;
-    }
-
-    .rule:hover {
-      cursor: url(./images/cur-purple.cur), pointer;
-      filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5))
-        drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
-      transform: scale(1.01);
-    }
-
-    /* 生命 Heart*/
-    #life {
-      position: relative;
-      height: 45px;
-      width: 184px;
-      padding: 0 5px;
-      display: inline-block;
-      overflow: hidden;
-      margin-left: 20px;
-    }
-    #life-heart {
-      position: relative;
-      height: 45px;
-    }
-    #life-heart img {
-      float: left;
-    }
-
-    /* 音樂 Icon */
-    #music {
-      margin-left: 10px;
-      position: relative;
-      top: 10px;
-    }
-    #music img {
-      height: 50px;
-    }
-    #music img:hover {
-      cursor: url(./images/cur-orange.cur), pointer;
-      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))
-        drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-      transform: scale(1.05);
-    }
-
-    /* copyright */
-    .copyright {
-      width: 250px;
-      height: 50px;
-      position: relative;
-      left: 50%;
-      top: 100%;
-      z-index: 999;
-      transform: translate(-50%, 0%);
-    }
-
-    /* 得分圖 / GAMEOVER 圖 */
-    /* 遊戲結束 */
-    .GameOver {
-      width: 864px;
-      height: 648px;
-      /* border: 2px solid #000000; */
-      border-radius: 12px;
-      position: absolute;
-      top: 10%;
-      left: 28%;
-      background-image: url(./images/gameover-1.gif);
-      background-repeat: no-repeat;
-      background-size: 100%;
-      -webkit-filter: drop-shadow(5px 5px 5px #333);
-    }
-    /* 10分以上 */
-    .GoodJob {
-      width: 864px;
-      height: 648px;
-      /* border: 2px solid #000000; */
-      border-radius: 12px;
-      position: absolute;
-      top: 10%;
-      left: 28%;
-      background-image: url(./images/goodjob-1.gif);
-      background-repeat: no-repeat;
-      background-size: 100%;
-      -webkit-filter: drop-shadow(5px 5px 5px #333);
-    }
-    /* 20分以上 */
-    .perfect {
-      width: 864px;
-      height: 648px;
-      /* border: 2px solid #000000; */
-      border-radius: 12px;
-      position: absolute;
-      top: 10%;
-      left: 28%;
-      background-image: url(./images/perfect.gif);
-      background-repeat: no-repeat;
-      background-size: 100%;
-      -webkit-filter: drop-shadow(5px 5px 5px #333);
-    }
-    /* 0分 */
-    .zero {
-      width: 864px;
-      height: 648px;
-      /* border: 2px solid #000000; */
-      border-radius: 12px;
-      position: absolute;
-      top: 10%;
-      left: 28%;
-      background-image: url(./images/zero.gif);
-      background-repeat: no-repeat;
-      background-size: 100%;
-      -webkit-filter: drop-shadow(5px 5px 5px #333);
-    }
-  </style>
   <body id="body">
     <div class="container">
       <!-- 上方 -->
-      <span>
-        <span id="score">SCORE：<span id="text-score">0</span></span>
-        <span id="time">TIME：<span id="text-time">30</span></span>
+      <span class="flex_around">
+        <span>
+          <span id="score">SCORE：<span id="text-score">0</span></span>
+          <span id="time">TIME：<span id="text-time">30</span></span>
+        </span>
+        <span id="life">
+          <div id="life-heart">
+            <img src="./images/heart1-1.png" alt="" />
+            <img src="./images/heart2-1.png" alt="" />
+            <img src="./images/heart3-1.png" alt="" />
+            <img src="./images/heart4-1.png" alt="" />
+          </div>
+        </span>
       </span>
-      <span id="life" style="position: relative; left: 32%">
-        <div id="life-heart">
-          <img src="./images/heart1-1.png" alt="" />
-          <img src="./images/heart2-1.png" alt="" />
-          <img src="./images/heart3-1.png" alt="" />
-          <img src="./images/heart4-1.png" alt="" />
-        </div>
-      </span>
+
       <!-- 遊戲版面 -->
       <div id="game"></div>
       <!-- 下方 -->
-      <span style="position: relative; left: 30%">
+      <span>
         <input
           type="button"
           value="START"
