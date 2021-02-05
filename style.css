@@ -30,6 +30,12 @@ body {
   align-items: center;
 }
 
+.github_position {
+  position: absolute;
+  bottom: 1%;
+  right: 2%;
+}
+
 /* 遊戲版面 */
 #game {
   /* width: 1100px; */
