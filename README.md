@@ -2,7 +2,7 @@
 
 ![Zombie 🎵](https://i.imgur.com/X6QAyos.png)
 
-### DEMO：[Zombie 🎵](https://ellallu0903.github.io/jq-zombie/20201005_HW_zombie)
+### DEMO：[Zombie 🎵](https://ellallu0903.github.io/jq-zombie/20201005_HW_zombie.html)
 
 ### 圖片來源：
 
